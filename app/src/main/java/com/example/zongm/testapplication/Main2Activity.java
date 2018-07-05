@@ -65,4 +65,12 @@ public class Main2Activity extends AppCompatActivity {
             unregisterReceiver(innerReceiver);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(RESULT_OK);
+        finish();
+    }
+
 }

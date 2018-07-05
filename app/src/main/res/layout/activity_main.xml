@@ -9,22 +9,32 @@
     tools:context=".MainActivity">
 
 
-
     <Button
+        android:id="@+id/btn_send"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/btn_send"
-        android:text="发送通知"
         android:layout_centerInParent="true"
-        />
+        android:text="发送通知" />
 
     <CheckBox
+        android:id="@+id/cb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cb"
-        android:text="震动"
         android:layout_below="@+id/btn_send"
         android:layout_marginTop="100dp"
-        />
+        android:text="震动" />
 
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启singTask" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn"
+        android:text="开启singleInstance" />
 </RelativeLayout>

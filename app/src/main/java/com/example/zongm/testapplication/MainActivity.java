@@ -49,7 +49,21 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(0x80000000, 0x80000000);
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivityForResult(intent, 100);
+            }
+        });
 
+        findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                startActivityForResult(intent, 99);
+            }
+        });
         ////创建广播
         //innerReceiver = new InnerRecevier();
         ////动态注册广播
@@ -93,10 +107,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        ActivityManager activityManager =(ActivityManager)getApplicationContext()
+        ActivityManager activityManager = (ActivityManager) getApplicationContext()
             .getSystemService(Context.ACTIVITY_SERVICE);
 
-        activityManager.moveTaskToFront(getTaskId(),0);
+        activityManager.moveTaskToFront(getTaskId(), 0);
     }
 
     @Override
@@ -272,6 +286,19 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         if (innerReceiver != null) {
             unregisterReceiver(innerReceiver);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("zmm", "onActivityResult-------------->" + resultCode + "---->" + requestCode);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 100) {
+                Log.e("zmm", "onActivityResult-------------->singleTask");
+            } else {
+                Log.e("zmm", "onActivityResult-------------->singleInstance");
+            }
         }
     }
 }
