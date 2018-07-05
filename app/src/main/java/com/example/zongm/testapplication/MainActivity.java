@@ -27,6 +27,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+/**
+ * 测试12:05
+ */
 public class MainActivity extends AppCompatActivity {
 
     private NotificationManager notificationManager;
